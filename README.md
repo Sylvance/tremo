@@ -1,25 +1,16 @@
-# README
+# Tremo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tremo is an app for small businesses.
 
-Things you may want to cover:
+## Development
 
-* Ruby version
+- `make database`
+- `make serve`
 
-* System dependencies
+## Contributions
 
-* Configuration
+- Welcome for all to contribute.
 
-* Database creation
+### Contributors
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# tremo
+- Sylvance.
