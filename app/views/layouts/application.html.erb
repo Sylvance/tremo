@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html style="
+  margin: 0px; width: 97vw; height: 97vh; background-color: #f8f8fa;
+">
   <head>
     <title>Tremo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="
+    margin: 0px; width: 100%; height: 100%;
+    background-color: #f8f8fa; padding-left: 2em;
+    padding-right: 2em; overflow-y:scroll;
+  ">
+    <div>
+      <div class="center">
+        <span><%= image_tag("shop_black_36dp.svg") %></span>
+        <span style="color: #182940; font-size: 32px; font-family: 'Ubuntu', sans-serif;">Tremö</span>
+      </div>
+      <div class="center">
+        <span style="color: #bfc3d2; font-size: 24px; font-family: 'Ubuntu', sans-serif;">Monitoring / All Routes / Profile :: </span>
+      </div>
+      <div class="center">
+        <span><%= image_tag("shop_black_36dp.svg") %></span>
+        <span style="color: #182940; font-size: 32px; font-family: 'Ubuntu', sans-serif;">Tremö</span>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

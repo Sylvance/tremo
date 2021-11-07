@@ -3,7 +3,30 @@
 <h1><b>Tremo</b>: <%= human_name.pluralize %></h1>
 
 <div id="<%= plural_table_name %>">
-  <%%= render @<%= plural_table_name %> %>
+  <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+    <div id="<%%= dom_id(<%= singular_table_name %>) %>">
+    <% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <p>
+        <strong><%= attribute.human_name %>:</strong>
+    <% if attribute.attachment? -%>
+        <%%= link_to <%= singular_table_name %>.<%= attribute.column_name %>.filename, <%= singular_table_name %>.<%= attribute.column_name %> if <%= singular_table_name %>.<%= attribute.column_name %>.attached? %>
+    <% elsif attribute.attachments? -%>
+        <%% <%= singular_table_name %>.<%= attribute.column_name %>.each do |<%= attribute.singular_name %>| %>
+          <div><%%= link_to <%= attribute.singular_name %>.filename, <%= attribute.singular_name %> %></div>
+        <%% end %>
+    <% else -%>
+        <%%= <%= singular_table_name %>.<%= attribute.column_name %> %>
+    <% end -%>
+      </p>
+    <% end -%>
+    </div>
+
+    <p>
+      <%%= link_to "Show", <%= singular_table_name %> %> | 
+      <%%= link_to "Edit", edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %> | 
+      <%%= link_to "Destroy", <%= singular_table_name %>_path(<%= singular_table_name %>), method: :delete %>
+    </p>
+  <%% end %>
 </div>
 
 <%%= link_to "New <%= human_name.downcase %>", new_<%= singular_route_name %>_path %>
